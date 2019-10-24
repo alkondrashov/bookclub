@@ -1,0 +1,25 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<app-dashboard></app-dashboard>
+
+<div class="header">
+		<div class="title">
+		  {{title | uppercase}}
+		</div>
+		<nav><ul><li><a href="#" (click)="getAllBooks()">All Books</a></li>
+		  <li><a href="#" (click)="getAvailBooks()">Available Books</a></li>
+		  <li><a href="#" (click)="getRentedBooks()">Rented Books</a></li></ul>
+		</nav>
+	  </div>
+
+<div *ngFor='let book of bookList'>
+	<app-book
+	 [name]='book.Name'
+	 [status]='book.Status'
+	 [isbn]='book.ISBN'
+	 [author]='book.Author'
+	 >
+	</app-book>
+	<br/>
+</div>
+
+<router-outlet></router-outlet>
